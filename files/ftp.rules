@@ -1,0 +1,2 @@
+-A INPUT -m state --state NEW -p tcp --dport 21 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 2000:2010 -j ACCEPT
