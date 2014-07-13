@@ -8,6 +8,16 @@ class iptables {
 			ensure => installed,
 	}
 
+	service { "firewalld":
+			enable => false,
+			ensure => stopped,
+		}
+
+	service { "iptables":
+			enable => true,
+			ensure => running,
+		} 
+
 	file { "/usr/local/bin/cat_config.sh":
 		owner => root,
 		group => root,
