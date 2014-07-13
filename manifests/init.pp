@@ -1,5 +1,13 @@
 class iptables {
-	
+	$pkg = $operatingsystemrelease ? {
+		/^6/ => "iptables",	
+		/^7/ => "iptables-services",
+	}
+
+	package { $pkg:
+			ensure => installed,
+	}
+
 	file { "/usr/local/bin/cat_config.sh":
 		owner => root,
 		group => root,
